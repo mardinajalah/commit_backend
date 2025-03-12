@@ -1,5 +1,5 @@
 import express from "express"
-import { getAlldata, createData, getDataById, updateData, deleteData } from "../model/index.js"
+import { getAlldata, createData, getDataById, updateData, deleteData } from "../lib/modal.js"
 
 const router = express.Router()
 
