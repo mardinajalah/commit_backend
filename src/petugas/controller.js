@@ -1,5 +1,5 @@
 import express from "express";
-import { getAllOfficer, getOfficerById, createOfficer, updateOfficer } from "./server.js"
+import { getAllOfficer, getOfficerById, createOfficer, updateOfficer, deleteOfficer } from "./server.js"
 
 const router = express.Router();
 
@@ -28,7 +28,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
-// // create
+
 router.post('/', async (req, res) => {
   const data =  req.body
   try {
@@ -57,15 +57,15 @@ router.put('/:id', async (req, res) => {
     } 
 })
 
-// router.delete('/:id', async (req, res) => {
-//   const { id } = req.params
-//   try {
-//     await deleteProduct(id)
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params
+  try {
+    await deleteOfficer(id)
 
-//     res.status(201).json({message : "barang berhasil dihapus"})
-//   } catch (error) {
-//     res.status(500).json({ message : error.message})
-//   }
-// })
+    res.status(201).json({message : "data berhasil dihapus"})
+  } catch (error) {
+    res.status(500).json({ message : error.message})
+  }
+})
 
 export default router
